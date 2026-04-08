@@ -3,37 +3,58 @@ import gsap from 'gsap'
 import './Cursor.css'
 
 export default function Cursor() {
-  const cursorRef = useRef(null)
+  const dotRef  = useRef(null)
+  const ringRef = useRef(null)
 
   useEffect(() => {
-    const cursor = cursorRef.current
-    const xTo = gsap.quickTo(cursor, 'x', { duration: 0.4, ease: 'power3.out' })
-    const yTo = gsap.quickTo(cursor, 'y', { duration: 0.4, ease: 'power3.out' })
+    const dot  = dotRef.current
+    const ring = ringRef.current
 
-    const onMove = e => {
-      xTo(e.clientX - 5)
-      yTo(e.clientY - 5)
+    const xRing = gsap.quickTo(ring, 'x', { duration: 0.12, ease: 'power3.out' })
+    const yRing = gsap.quickTo(ring, 'y', { duration: 0.12, ease: 'power3.out' })
+
+    const onMove = ({ clientX: x, clientY: y }) => {
+      gsap.set(dot, { x: x - 3, y: y - 3 })
+      xRing(x - 18)
+      yRing(y - 18)
     }
 
-    const onEnter = () => gsap.to(cursor, { scale: 2.5, duration: 0.3, ease: 'power2.out' })
-    const onLeave = () => gsap.to(cursor, { scale: 1,   duration: 0.3, ease: 'power2.out' })
+    const onEnter = e => {
+      const isLogo = e.target.closest?.('.navbar__logo')
+      gsap.to(ring, { scale: isLogo ? 3 : 2, opacity: 0.6, duration: 0.3, ease: 'power2.out' })
+      gsap.to(dot,  { scale: 0, duration: 0.2 })
+    }
 
-    const targets = document.querySelectorAll('button, a')
+    const onLeave = () => {
+      gsap.to(ring, { scale: 1, opacity: 1, duration: 0.3, ease: 'power2.out' })
+      gsap.to(dot,  { scale: 1, duration: 0.2 })
+    }
+
+    // Use event delegation — one listener on document, no re-attachment needed
+    const onEnterDelegate = e => {
+      const target = e.target.closest('a, button, .service-card, .industry-card')
+      if (target) onEnter(e)
+    }
+    const onLeaveDelegate = e => {
+      const target = e.target.closest('a, button, .service-card, .industry-card')
+      if (target) onLeave()
+    }
 
     window.addEventListener('mousemove', onMove)
-    targets.forEach(el => {
-      el.addEventListener('mouseenter', onEnter)
-      el.addEventListener('mouseleave', onLeave)
-    })
+    document.addEventListener('mouseover',  onEnterDelegate)
+    document.addEventListener('mouseout',   onLeaveDelegate)
 
     return () => {
       window.removeEventListener('mousemove', onMove)
-      targets.forEach(el => {
-        el.removeEventListener('mouseenter', onEnter)
-        el.removeEventListener('mouseleave', onLeave)
-      })
+      document.removeEventListener('mouseover',  onEnterDelegate)
+      document.removeEventListener('mouseout',   onLeaveDelegate)
     }
   }, [])
 
-  return <div ref={cursorRef} className='cursor' />
+  return (
+    <>
+      <div ref={dotRef}  className='cursor__dot'  />
+      <div ref={ringRef} className='cursor__ring' />
+    </>
+  )
 }

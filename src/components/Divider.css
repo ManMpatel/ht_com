@@ -1,0 +1,29 @@
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0 6rem;
+  background: #080C14;
+  gap: 1.25rem;
+}
+
+.divider__line {
+  flex: 1;
+  max-width: 180px;
+  height: 1px;
+  background: #1E2535;
+}
+
+.divider__diamond {
+  font-size: 0.45rem;
+  color: #C9A452;
+  opacity: 0.55;
+  line-height: 1;
+}
+
+@media (max-width: 560px) {
+  .divider {
+    padding: 0 1.5rem;
+  }
+}

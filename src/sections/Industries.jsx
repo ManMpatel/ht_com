@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import './Industries.css'
@@ -22,19 +23,14 @@ export default function Industries() {
   useEffect(() => {
     gsap.fromTo(headingRef.current,
       { opacity: 0, y: 40 },
-      {
-        opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
-        scrollTrigger: { trigger: headingRef.current, start: 'top 85%' },
-      }
+      { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
+        scrollTrigger: { trigger: headingRef.current, start: 'top 85%' } }
     )
-
     const cards = gridRef.current.querySelectorAll('.industry-card')
     gsap.fromTo(cards,
       { opacity: 0, y: 60 },
-      {
-        opacity: 1, y: 0, duration: 0.6, ease: 'power3.out', stagger: 0.1,
-        scrollTrigger: { trigger: gridRef.current, start: 'top 85%' },
-      }
+      { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out', stagger: 0.1,
+        scrollTrigger: { trigger: gridRef.current, start: 'top 85%' } }
     )
   }, [])
 
@@ -47,7 +43,7 @@ export default function Industries() {
       </div>
 
       <div className='industries__heading' ref={headingRef}>
-        <h2 className='industries__title'>Built for Every Industry</h2>
+        <h2 className='industries__title char-reveal'>Built for Every Industry</h2>
         <p className='industries__sub'>
           HTC delivers IT solutions across a wide range of sectors — each with their own
           procurement needs, compliance requirements, and operational demands.
@@ -65,7 +61,7 @@ export default function Industries() {
       </div>
 
       <div className='industries__cta'>
-        <button className='industries__btn'>See Industry Solutions</button>
+        <Link to='/industries' className='industries__btn'>See Industry Solutions</Link>
       </div>
     </section>
   )

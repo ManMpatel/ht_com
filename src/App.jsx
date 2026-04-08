@@ -1,6 +1,9 @@
+import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Cursor from './components/Cursor'
-import ScrollToTop from './components/ScrollToTop'
+import ScrollToTop    from './components/ScrollToTop'
+import ScrollProgress from './components/ScrollProgress'
+import Cursor         from './components/Cursor'
+import Preloader      from './components/Preloader'
 
 import Home        from './pages/Home'
 import About       from './pages/About'
@@ -10,22 +13,26 @@ import Partners    from './pages/Partners'
 import Contact     from './pages/Contact'
 import Blog        from './pages/Blog'
 
-import Hardware     from './pages/services/Hardware'
+import Hardware      from './pages/services/Hardware'
 import Installations from './pages/services/Installations'
-import ManagedIT    from './pages/services/ManagedIT'
-import Resourcing   from './pages/services/Resourcing'
-import Cloud        from './pages/services/Cloud'
-import Networking   from './pages/services/Networking'
+import ManagedIT     from './pages/services/ManagedIT'
+import Resourcing    from './pages/services/Resourcing'
+import Cloud         from './pages/services/Cloud'
+import Networking    from './pages/services/Networking'
 import Cybersecurity from './pages/services/Cybersecurity'
-import UnifiedComms from './pages/services/UnifiedComms'
-import Software     from './pages/services/Software'
-import Accessories  from './pages/services/Accessories'
+import UnifiedComms  from './pages/services/UnifiedComms'
+import Software      from './pages/services/Software'
+import Accessories   from './pages/services/Accessories'
 
-function App() {
+export default function App() {
+  const [loading, setLoading] = useState(true)
+
   return (
     <>
-      <Cursor />
+      {loading && <Preloader onComplete={() => setLoading(false)} />}
       <ScrollToTop />
+      <ScrollProgress />
+      <Cursor />
       <Routes>
         <Route path='/'                        element={<Home />} />
         <Route path='/about'                   element={<About />} />
@@ -41,12 +48,10 @@ function App() {
         <Route path='/services/software'       element={<Software />} />
         <Route path='/services/accessories'    element={<Accessories />} />
         <Route path='/industries'              element={<Industries />} />
-        <Route path='/partners'                element={<Partners />} />
-        <Route path='/contact'                 element={<Contact />} />
-        <Route path='/blog'                    element={<Blog />} />
+        <Route path='/partners'               element={<Partners />} />
+        <Route path='/contact'                element={<Contact />} />
+        <Route path='/blog'                   element={<Blog />} />
       </Routes>
     </>
   )
 }
-
-export default App

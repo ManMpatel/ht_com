@@ -96,7 +96,9 @@
   padding: 2rem;
   overflow: hidden;
   transition: border-color 0.3s ease, transform 0.3s ease;
-  cursor: default;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
 }
 
 .service-card:hover {
@@ -182,6 +184,8 @@
   padding: 0.9rem 2.4rem;
   border-radius: 4px;
   cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
   transition: background 0.2s ease, color 0.2s ease;
 }
 

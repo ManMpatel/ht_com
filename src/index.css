@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@400;500&display=swap');
 
 :root {
-  --bg-primary: #080C14;
-  --bg-surface: #0E1420;
-  --bg-card: #111827;
-  --accent: #C9A452;
+  --bg-primary:   #080C14;
+  --bg-surface:   #0E1420;
+  --bg-card:      #111827;
+  --accent:       #C9A452;
   --accent-light: #E8C97A;
   --text-primary: #F0EDE6;
-  --text-muted: #7A8499;
-  --border: #1E2535;
+  --text-muted:   #7A8499;
+  --border:       #1E2535;
 }
 
 *,
@@ -23,4 +23,39 @@ body {
   background: var(--bg-primary);
   color: var(--text-primary);
   font-family: 'DM Sans', sans-serif;
+  cursor: none;
+}
+
+/* ── Card shine sweep on hover ── */
+
+.service-card::before,
+.industry-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.035) 50%,
+    transparent 65%
+  );
+  transition: left 0.65s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.service-card:hover::before,
+.industry-card:hover::before {
+  left: 200%;
+}
+
+/* ── Fallback: restore cursor on touch devices ── */
+
+@media (hover: none) {
+  body {
+    cursor: auto;
+  }
 }

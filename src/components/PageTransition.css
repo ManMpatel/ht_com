@@ -1,0 +1,8 @@
+.page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #050810;
+  pointer-events: none;
+  transform: translateY(100%);
+}
