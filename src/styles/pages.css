@@ -1,0 +1,304 @@
+/* Shared styles for non-service pages (About, Industries, Partners, Blog, ServicesHub) */
+
+.page-hero {
+  width: 100%;
+  min-height: 50vh;
+  background: #050810;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 140px 6rem 6rem;
+  border-bottom: 1px solid #1E2535;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 700px 400px at 50% 0%, rgba(201,164,82,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.page-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 860px;
+}
+
+.page-hero__eyebrow {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #C9A452;
+  border: 1px solid rgba(201,164,82,0.35);
+  border-radius: 100px;
+  padding: 0.3rem 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.page-hero__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 600;
+  color: #F0EDE6;
+  line-height: 1.1;
+  margin: 0 0 1.25rem;
+}
+
+.page-hero__sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  color: #7A8499;
+  line-height: 1.8;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* ── Section wrapper ── */
+
+.page-section {
+  width: 100%;
+  padding: 5rem 6rem;
+  border-bottom: 1px solid #1E2535;
+}
+
+.page-section--surface {
+  background: #0E1420;
+}
+
+.page-section__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.page-section__label {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #C9A452;
+  margin-bottom: 0.75rem;
+}
+
+.page-section__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 600;
+  color: #F0EDE6;
+  line-height: 1.15;
+  margin: 0 0 1.5rem;
+}
+
+.page-section__text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  color: #7A8499;
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 0 0 1rem;
+}
+
+/* ── Card grid ── */
+
+.page-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.page-card-grid--2col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 900px) {
+  .page-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .page-card-grid,
+  .page-card-grid--2col {
+    grid-template-columns: 1fr;
+  }
+
+  .page-hero {
+    padding: 120px 1.5rem 4rem;
+  }
+
+  .page-section {
+    padding: 4rem 1.5rem;
+  }
+}
+
+.page-card {
+  background: #0E1420;
+  border: 1px solid #1E2535;
+  border-radius: 8px;
+  padding: 2rem;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.page-card:hover {
+  border-color: rgba(201,164,82,0.4);
+  transform: translateY(-3px);
+}
+
+.page-card__number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.9rem;
+  color: #C9A452;
+  opacity: 0.45;
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.page-card__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #F0EDE6;
+  margin: 0 0 0.75rem;
+  line-height: 1.2;
+}
+
+.page-card__desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  color: #7A8499;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ── Bullets ── */
+
+.page-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.page-bullets li {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.92rem;
+  color: #7A8499;
+  line-height: 1.6;
+  padding-left: 1.1rem;
+  position: relative;
+}
+
+.page-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #C9A452;
+}
+
+/* ── Page CTA ── */
+
+.page-cta {
+  text-align: center;
+  padding: 6rem;
+  background: linear-gradient(135deg, #0E1420, #111827);
+  border-top: 1px solid #1E2535;
+}
+
+.page-cta__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 600;
+  color: #F0EDE6;
+  margin: 0 0 1rem;
+}
+
+.page-cta__sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  color: #7A8499;
+  line-height: 1.8;
+  max-width: 560px;
+  margin: 0 auto 2.5rem;
+}
+
+.page-cta__buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.page-btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1rem 2.4rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  border: 2px solid #C9A452;
+}
+
+.page-btn--primary {
+  background: #C9A452;
+  color: #080C14;
+}
+
+.page-btn--primary:hover {
+  background: #E8C97A;
+  border-color: #E8C97A;
+}
+
+.page-btn--secondary {
+  background: transparent;
+  color: #C9A452;
+}
+
+.page-btn--secondary:hover {
+  background: rgba(201,164,82,0.08);
+}
+
+/* ── Section label (reusable across all pages) ── */
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.section-label__text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #C9A452;
+  white-space: nowrap;
+}
+
+.section-label__line {
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: #C9A452;
+  opacity: 0.5;
+}

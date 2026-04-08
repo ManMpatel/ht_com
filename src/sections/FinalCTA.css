@@ -1,0 +1,94 @@
+.final-cta {
+  position: relative;
+  width: 100%;
+  padding: 8rem 6rem;
+  background: linear-gradient(135deg, #0E1420 0%, #111827 100%);
+  border-top: 1px solid #1E2535;
+  border-bottom: 1px solid #1E2535;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.final-cta__glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 400px;
+  background: radial-gradient(ellipse at center, rgba(201, 164, 82, 0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.final-cta__content {
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
+}
+
+.final-cta__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 600;
+  color: #F0EDE6;
+  line-height: 1.1;
+  margin: 0 0 1.5rem;
+}
+
+.final-cta__sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  color: #7A8499;
+  line-height: 1.8;
+  max-width: 580px;
+  margin: 0 auto 2.5rem;
+}
+
+.final-cta__buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.final-cta__btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 1rem 2.4rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.final-cta__btn--primary {
+  background: #C9A452;
+  color: #080C14;
+  border: 2px solid #C9A452;
+}
+
+.final-cta__btn--primary:hover {
+  background: #E8C97A;
+  border-color: #E8C97A;
+}
+
+.final-cta__btn--secondary {
+  background: transparent;
+  color: #C9A452;
+  border: 2px solid #C9A452;
+}
+
+.final-cta__btn--secondary:hover {
+  background: rgba(201, 164, 82, 0.08);
+}
+
+@media (max-width: 600px) {
+  .final-cta {
+    padding: 5rem 1.5rem;
+  }
+}

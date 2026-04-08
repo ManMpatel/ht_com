@@ -1,0 +1,126 @@
+.partners {
+  width: 100%;
+  padding: 6rem;
+  background: #0E1420;
+  border-top: 1px solid #1E2535;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.partners__heading {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.partners__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 600;
+  color: #F0EDE6;
+  line-height: 1.1;
+  margin: 0 0 1.25rem;
+}
+
+.partners__sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  color: #7A8499;
+  line-height: 1.75;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+/* ── Core partners ── */
+
+.partners__core {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 1100px;
+  margin-bottom: 4rem;
+}
+
+.partner-core-card {
+  flex: 1 1 140px;
+  max-width: 180px;
+  background: #111827;
+  border: 1px solid #1E2535;
+  border-radius: 8px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+  cursor: default;
+}
+
+.partner-core-card:hover {
+  border-color: #C9A452;
+  transform: translateY(-3px);
+}
+
+.partner-core-card__name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #7A8499;
+  transition: color 0.3s ease;
+}
+
+.partner-core-card:hover .partner-core-card__name {
+  color: #C9A452;
+}
+
+/* ── Extended partners ── */
+
+.partners__extended {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  width: 100%;
+  max-width: 1100px;
+  border-top: 1px solid #1E2535;
+  padding-top: 3rem;
+}
+
+@media (max-width: 768px) {
+  .partners__extended {
+    grid-template-columns: 1fr;
+  }
+
+  .partners {
+    padding: 4rem 1.5rem;
+  }
+}
+
+.partner-group__label {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #C9A452;
+  margin-bottom: 1rem;
+}
+
+.partner-group__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+}
+
+.partner-group__item {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  color: #7A8499;
+  transition: color 0.2s ease;
+  cursor: default;
+}
+
+.partner-group__item:hover {
+  color: #F0EDE6;
+}

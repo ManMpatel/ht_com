@@ -1,0 +1,111 @@
+.why-htc {
+  position: relative;
+  width: 100%;
+  padding: 6rem;
+  background: #080C14;
+  border-top: 1px solid #1E2535;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* ── Decorative background text ── */
+
+.why-htc__deco {
+  position: absolute;
+  right: -2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20rem;
+  font-weight: 600;
+  color: rgba(201, 164, 82, 0.03);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* ── Heading ── */
+
+.why-htc__heading {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.why-htc__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 600;
+  color: #F0EDE6;
+  line-height: 1.1;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ── Grid ── */
+
+.why-htc__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1100px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .why-htc__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-htc {
+    padding: 4rem 1.5rem;
+  }
+
+  .why-htc__deco {
+    font-size: 10rem;
+    right: -1rem;
+  }
+}
+
+/* ── Card ── */
+
+.why-card {
+  background: transparent;
+  border-left: 2px solid #C9A452;
+  padding: 1.5rem 2rem;
+  transition: background 0.3s ease;
+}
+
+.why-card:hover {
+  background: rgba(201, 164, 82, 0.04);
+}
+
+.why-card__number {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: #C9A452;
+  opacity: 0.4;
+  margin-bottom: 0.75rem;
+}
+
+.why-card__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #F0EDE6;
+  margin: 0 0 0.6rem;
+  line-height: 1.2;
+}
+
+.why-card__desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  color: #7A8499;
+  line-height: 1.8;
+  margin: 0;
+}
